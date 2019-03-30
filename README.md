@@ -10,10 +10,10 @@ Comparison between naive and cache-oblivious approaches to matrices transposing.
 
 ### Cache-oblivious:
 
-  Elapsed time: 3.106011 - n = 4
-  Elapsed time: 1.603378 - n = 16
-  Elapsed time: 1.484583 - n = 32
-  Elapsed time: 1.482091 - n = 64 <- !
-  Elapsed time: 1.547408 - n = 128
-
-*n - size of block*
+|Elapsed time|Size of block (n)|
+|---|---|
+|3.106011|4|
+|1.603378|16|
+|1.484583|32|
+|1.482091|64|
+|1.547408|128|
