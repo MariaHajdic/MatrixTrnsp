@@ -4,9 +4,10 @@
 #include <algorithm>
 #include <cmath>
 #include <ctime>
-#include "matrix_init.h"
 
 #define n 64
+
+int N = 0;
 
 template<typename T> void transpose(T &v);
 
@@ -40,11 +41,16 @@ void transpose(T &v) {
     }
 }
 
-int main() {
-    matrix_init();
+int main(int argc, char **argv) {
+    if (argc != 2) {
+        std::cout << "Usage: ./transpose filename\n";
+        return 1;
+    }
+    char *filename = argv[1];
 
     std::ifstream f;
-    f.open("256_matrix.txt");
+    f.open(filename);
+    f >> N;
 
     const int blocks_in_line = N / n, num_of_blocks = blocks_in_line * blocks_in_line; 
     std::vector<std::vector<int>> matrix(num_of_blocks, std::vector<int> (n*n,0));

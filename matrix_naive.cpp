@@ -3,7 +3,6 @@
 #include <iostream>
 #include <algorithm>
 #include <ctime>
-#include "matrix_init.h"
 
 void transpose(std::vector<std::vector<int>> &v) {
     for (size_t i = 0; i < v.size(); ++i) {
@@ -13,11 +12,18 @@ void transpose(std::vector<std::vector<int>> &v) {
     } 
 }
 
-int main() {
-    matrix_init();
+int main(int argc, char **argv) {
+    if (argc != 2) {
+        std::cout << "Usage: ./transpose_naive filename\n";
+        return 1;
+    }
 
+    char *filename = argv[1];
     std::ifstream f;
-    f.open("256_matrix.txt");
+    f.open(filename);
+    int N;
+    f >> N;
+
     std::vector<std::vector<int>> matrix(N, std::vector<int> (N,0));
     for (size_t i = 0; i < N; ++i) {
         for (size_t j = 0; j < N; ++j) {
